@@ -45,9 +45,10 @@ Notarisation to the blockchain makes it possible for the business system to audi
 reliability of any TAP Gateway that it uses.
 
 This specification aims to support the Australian Digital Business Council
-[eInvoicing initiative](https://ausdigital.github.io), and is under active development
-at [https://github.com/ausdigital/access-point](https://github.com/ausdigital/access-point).
-
+[eInvoicing initiative](https://ausdigital.github.io), as an extension of the
+[https://github.com/ausdigital/access-point](https://github.com/ausdigital/access-point).
+It is under active development at
+[https://github.com/ausdigital/gateway](https://github.com/ausdigital/gateway).
 
 ## Licence
 
