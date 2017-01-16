@@ -48,9 +48,9 @@ reliability of any TAP Gateway that it uses.
 
 This specification aims to support the Australian Digital Business Council
 [eInvoicing initiative](https://ausdigital.github.io), as an extension of the
-[https://github.com/ausdigital/access-point](https://github.com/ausdigital/access-point).
+[https://github.com/ausdigital/ausdigital-tap](https://github.com/ausdigital/ausdigital-tap).
 It is under active development at
-[https://github.com/ausdigital/gateway](https://github.com/ausdigital/gateway).
+[https://github.com/ausdigital/ausdigital-tap-gw](https://github.com/ausdigital/ausdigital-tap-gw).
 
 ## Licence
 
