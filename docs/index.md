@@ -8,8 +8,14 @@
  * Editor: Chris Gough
  * Contributors: Steve Capell
 
+## Glossary:
+
+phrase | Definition
+------------ | -------------
+ausdigital-tap/2 | Version 2 of the [AusDigtial](http://ausdigital.org) [TAP](http://ausdigital-tap.readthedocs.io/) specification
+
 This document describes the access point gateway (TAP-GW), which is an optional extension
-to the ADBC access point (TAP). The TAP-GW allows ledger implementers to standardise
+to the ausdigital-tap/2. The TAP-GW allows ledger implementers to standardise
 interfaces and protocols for communication between trusted/secure ledger systems and
 public-facing TAP services.
 
@@ -25,15 +31,15 @@ described as an optional extension to the TAP protocol.
 
 There are various reasons why a business system architect may want a structural
 separation between their trusted components (e.g. ledger service, ERP system, etc) and
-their externaly facing components, such as a TAP Gateway. These include performance,
+their externally facing components, such as a TAP Gateway. These include performance,
 reliability and security objectives, as well as a desire to focus on features that
 differentiate their system while outsourcing generic functionality to services with
 low-cost utility characteristics. The TAPGW sub-protocol is designed to ensure Gateway
-services are generic and interchangable commodities.
+services are generic and interchangeable commodities.
 
-A TAP Gateway service is an avaialbility mediator (allowing trusted business system
+A TAP Gateway service is an availability mediator (allowing trusted business system
 components to have intermittent connectivity, and/or to sit behind a firewall). It is
-however more than a simple asynchronous proxy (store-and-forward service); aditionally,
+however more than a simple asynchronous proxy (store-and-forward service); additionally,
 it performs functions such as message validation, logging, access control, and protocol
 callbacks (including to Notary services).
 
