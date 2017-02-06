@@ -1,21 +1,22 @@
-# 1/TAP-GW
-
-## AusDigtial Transaction Access Point - Gateway (TAP-GW) 1.0 Specification
-
+ * Spec ID: ausdigital.org/ausdigital-tap-gw/1.0
  * ![raw](http://rfc.unprotocols.org/spec:2/COSS/raw.svg)
- * Editor: Chris Gough
- * Contributors: Steve Capell
+ * Editor: [Chris Gough](mailto:christopher.d.gough@gmail.com)
+ * Contributors: [Steven Capell](mailto:steven.capell@gosource.com.au)
 
-## Glossary:
+# AusDigtial Transaction Access Point - Gateway (TAP-GW) 1.0 Specification
 
-phrase | Definition
------------- | -------------
-ausdigital-tap/2 | Version 2 of the [AusDigtial](http://ausdigital.org) [TAP](http://ausdigital-tap.readthedocs.io/) specification
+## Introduction
 
 This document describes the access point gateway (TAP-GW), which is an optional extension
 to the ausdigital-tap/2. The TAP-GW allows ledger implementers to standardise
 interfaces and protocols for communication between trusted/secure ledger systems and
 public-facing TAP services.
+ 
+## Glossary:
+
+phrase | Definition
+------------ | -------------
+ausdigital-tap/2 | Version 2 of the [AusDigtial](http://ausdigital.org) [TAP](http://ausdigital-tap.readthedocs.io/) specification
 
 
 ## Status
@@ -82,3 +83,10 @@ This document is governed by the [2/COSS](http://rfc.unprotocols.org/spec:2/COSS
 The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT",
 "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in
 RFC 2119.
+
+# Related Material
+
+ * [GitHub issues](https://github.com/ausdigital/ausdigital-tap-gw/issues/) for collaborating on the development of the TAP-GW.
+ * A reference [TAP-GW service](http://testpoint.io/tap-gw) (for testing and development purposes).
+ * Free, Open-Source Software [TAP-GW implementation](https://github.com/test-point/testpoint-tap-gw).
+ * An automated [TAP-GW test suite](https://github.com/test-point/testpoint-tap-gw).
