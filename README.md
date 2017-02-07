@@ -4,7 +4,7 @@ The access point gateway (TAP-GW) is an optional extension to the AusDiggital Tr
 
 * [Version 1.0](/docs/1.0/index.md)
 
-Specification: [https://ausdigital-tap-gw.readthedocs.io/](https://ausdigital-tap-gw.readthedocs.io/)
+Specification: [http://ausdigital.org/specs/ausdigital-tap-gw/1.0/](http://ausdigital.org/specs/ausdigital-tap-gw/1.0/)
 
 Community discussion/support: [ausdigital.org](http://ausdigital.org)
 

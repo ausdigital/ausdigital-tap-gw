@@ -1,9 +1,10 @@
- * Spec ID: ausdigital.org/ausdigital-tap-gw/1.0
- * ![raw](http://rfc.unprotocols.org/spec:2/COSS/raw.svg)
- * Editor: [Chris Gough](mailto:christopher.d.gough@gmail.com)
- * Contributors: [Steven Capell](mailto:steven.capell@gosource.com.au)
-
-# AusDigtial Transaction Access Point - Gateway (TAP-GW) 1.0 Specification
+---
+title: "AusDigtial Transaction Access Point Gateway (TAP-GW) 1.0 Specification"
+specID: "ausdigital-tap-gw/1"
+status: "![raw](http://rfc.unprotocols.org/spec:2/COSS/raw.svg)"
+editors: "[Chris Gough](mailto:christopher.d.gough@gmail.com)"
+contributors: "[Steven Capell](mailto:steven.capell@gosource.com.au)"
+---
 
 ## Introduction
 
@@ -16,7 +17,7 @@ public-facing TAP services.
 
 phrase | Definition
 ------------ | -------------
-ausdigital-tap/2 | Version 2 of the [AusDigtial](http://ausdigital.org) [TAP](http://ausdigital-tap.readthedocs.io/) specification
+ausdigital-tap/2 | Version 2 of the [AusDigtial](http://ausdigital.org) [TAP](http://ausdigital.org/specs/ausdigital-tap/2.0/) specification
 
 
 ## Status
