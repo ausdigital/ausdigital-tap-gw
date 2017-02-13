@@ -1,12 +1,13 @@
-**[Back to Ausdigital.org](http://ausdigital.org/)**
+---
+title: "AusDigtial Transaction Access Point Gateway (TAP-GW) 1.0 Specification"
+specID: "ausdigital-tap-gw/1"
+status: "![raw](http://rfc.unprotocols.org/spec:2/COSS/raw.svg)"
+editors: "[Chris Gough](mailto:christopher.d.gough@gmail.com)"
+contributors: "[Steven Capell](mailto:steven.capell@gosource.com.au)"
+---
 
-# 1/TAP-GW
+## Introduction
 
-## ADBC Transaction Access Point - Gateway (TAP-GW) Specification
-
- * ![raw](http://rfc.unprotocols.org/spec:2/COSS/raw.svg)
- * Editor: Chris Gough
- * Contributors: Steve Capell
 
 This document describes the access point gateway (TAP-GW), which is an optional
 extension to the ADBC access point (TAP). The TAP-GW allows ledger implementers
@@ -41,6 +42,7 @@ but can verify signatures that are not encrypted.
 
 Notarisation to the blockchain makes it possible for the business system to
 audit the reliability of any TAP Gateway that it uses.
+
 
 This specification aims to support the Australian Digital Business Council
 [eInvoicing initiative](https://ausdigital.org), as an extension of the
@@ -186,3 +188,12 @@ TODO:
  * add callback for unsuccessful sends
  * is base64 encoding right, or should this be multipart/form-data with new
    parts? is that how we include callback(s)?
+
+
+# Related Material
+
+ * [GitHub issues](https://github.com/ausdigital/ausdigital-tap-gw/issues/) for collaborating on the development of the TAP-GW.
+ * A reference [TAP-GW service](http://testpoint.io/tap-gw) (for testing and development purposes).
+ * Free, Open-Source Software [TAP-GW implementation](https://github.com/test-point/testpoint-tap-gw).
+ * An automated [TAP-GW test suite](https://github.com/test-point/testpoint-tap-gw).
+
