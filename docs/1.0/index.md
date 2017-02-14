@@ -132,7 +132,8 @@ https://tap.testpoint.io/886313e1-3b8a-5372-9b90-0c9aee199e5d/
 ```
 
 This endpoint does not directly reveal any information about the message
-receiving party, however the `ausdigital-dcp` reference to the endpoint will.
+receiving party, however the `ausdigital-dcp` reference to the endpoint will (if
+metadata about the endpoint has been published).
 
 TODO: as a TAP-GW user:
 
@@ -215,13 +216,15 @@ That should problably be asynchronous, so PUTting should return a status URL, wh
 
 This is done on a per-endpoint basis.
 
- * get list of new messages with `GET /endpoints/{uuid}/{filter}`. This returns a
-   simple collection of message_id, datetime received, size in bytes.
+ * get list of new messages with `GET /endpoints/{uuid}/{filter}`. This returns
+   a simple collection of message_id, datetime received, size in bytes.
  * get individual message with `GET /messages/{uuid}`
  * view message status (new/read) with `GET /messages/{uuid}/metadata`
  * mark message as read with `PATCH {'status':'read'} /messages/{uuid}/metadata`
- * mark message as new/unread with `PATCH {'status':'new'} /messages/{uuid}/metadata`
- * update message metadata with `PATCH {'k1':'v3', 'k2':'v5'}` /messages/{uuid}/metadata`
+ * mark message as new/unread with
+   `PATCH {'status':'new'} /messages/{uuid}/metadata`
+ * update message metadata with
+   `PATCH {'k1':'v3', 'k2':'v5'}` /messages/{uuid}/metadata`
 
 
 # Send Messages
