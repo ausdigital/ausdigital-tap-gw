@@ -54,12 +54,14 @@ It is under active development at
    TAP services can be interchangeable commodities (prevent vendor lock-in).
  * Clearly delineate the boundary between private trusted systems and commodity
    message processing infrastructure.
- * Provide safe and convenient methods for managing a potentially large number
-   of TAP endpoints, including bespoke metadata.
+ * Manage a potentially large number of TAP endpoints, including bespoke
+   metadata that supports custom search features.
  * Provide safe and convenient methods for processing messages.
- * Abstract integrity assurance (notary service) away from the message handling
-   protocol, so that they support auditing and verification requirements without
-   adding complexity to message handling.
+ * Abstract `ausdigital-ney` away from the message handling protocol, so that
+   they support auditing and verification requirements without adding complexity
+   to message handling.
+ * Abstract `ausdigital-dcl`, `ausdigital-dcp` and `ausdigital-idp` behind safe
+   and convenient API methods for publishing endpoints.
 
 
 ## Status
@@ -209,7 +211,9 @@ TAP-GW will use the JWT to interact with the DCP and configure the endpoint
 appropriately (for that message type, in the specified service group, for the
 identified URN).
 
-That should problably be asynchronous, so PUTting should return a status URL, which can be used to check the status of the update (in progress, complete, failed).
+That should probably be asynchronous, so PUTting should return a status URL,
+which can be used to check the status of the update (in progress, complete,
+failed).
 
 
 # Receive Messages
@@ -242,6 +246,7 @@ TODO:
  * add callback for unsuccessful sends
  * is base64 encoding right, or should this be multipart/form-data with new
    parts? is that how we include callback(s)?
+
 
 
 # Related Material
