@@ -6,9 +6,6 @@ editors: "[Chris Gough](mailto:christopher.d.gough@gmail.com)"
 contributors: "[Steven Capell](mailto:steven.capell@gosource.com.au)"
 ---
 
-## Introduction
-
-
 This document describes the access point gateway (TAP-GW), which is an optional
 extension to the ADBC access point (TAP). The TAP-GW allows ledger implementers
 to use standard interfaces and protocols for communication between
@@ -76,13 +73,12 @@ the TAP protocol, the TAPGW sub-protocol is described as an optional extension
 to the TAP protocol.
 
 
-## Glossary:
+## Glossary
 
 phrase | Definition
 ------------ | -------------
 ausdigital-tapgw/1 | This document
 ausdigital-tap/2 | Version 2 of the [AusDigtial](http://ausdigital.org) [TAP](http://ausdigital.org/specs/ausdigital-tap/2.0/) specification
-ausdigital-bill/1 | Version 1 of the [AusDigtial](http://ausdigital.org) [BILL](http://ausdigital.org/specs/ausdigital-bill/1.0/) specification
 ausdigital-dcl/1 | Version 1 of the [AusDigtial](http://ausdigital.org) [DCL](http://ausdigital.org/specs/ausdigital-dcl/1.0) specification
 ausdigital-dcp/1 | Version 1 of the [AusDigtial](http://ausdigital.org) [DCP](http://ausdigital.org/specs/ausdigital-dcp/1.0) specification
 ausdigital-nry/1 | Version 1 of the [AusDigtial](http://ausdigital.org) [NRY](http://ausdigital.org/specs/ausdigital-nry/1.0/) specification
@@ -128,7 +124,7 @@ is sent to an HTTPS endpoint (TAP_URL) with a POST verb. The TAP-GW sub-protocol
 provides methods for creating, configuring and deleting these endpoints.
 
 These endpoints are identified with a URL, comprised of an the TAP-GW provider's
-DNS domain followed by an RFC 4122 Universally Unique Identifier (GUID).
+DNS domain followed by an RFC 4122 Universally Unique Identifier (UUID).
 
 For example:
 ```
@@ -136,7 +132,7 @@ https://tap.testpoint.io/886313e1-3b8a-5372-9b90-0c9aee199e5d/
 ```
 
 This endpoint does not directly reveal any information about the message
-receiving party, however the ausdigital-dcp reference to the endpoint will.
+receiving party, however the `ausdigital-dcp` reference to the endpoint will.
 
 TODO: as a TAP-GW user:
  * list my endpoints, filter on bespoke metadata (arbitrary key/values
@@ -158,6 +154,56 @@ schema of endpoint details:
 Note:
  * do we use a different domain for tap-gw? I think so
  * basepath like `https://tap-gw.testpoint.io/api/v0/` ?
+ * For creating endpoints, authentication to TAP-GW uses JWT from the TAP-GW
+   client (the TAP-GW is the RP)?
+
+TAP-GW customers can create an arbitrary number of endpoints, however these
+endpoints are "anonymous" until they are mapped to the integration surface of an identified business (via endpoint publishing mechanism)
+
+
+# Endpoint Publishing
+
+When endpoints are first created they are anonymous (there is not public
+information associated with them). Anonymous endpoints can receive messages, but
+they are a "dark channel" (not discoverable) until they have metadata published
+about them in an `ausdigital-dcp`.
+
+The TAP-GW protocol provides a simplified interface for associating an endpoint
+with a business identity, service group and purpose.
+
+TODO: document `PUT /endpoints/{uuid}/business`.
+Schema:
+ * JWT required
+ * business identifier URN?
+ * which ServiceGroup?
+ * Which endpoint type?
+ * requires an appropriate JWT for the business and DCP (update business
+   metadata scope)
+
+Notes/Rules:
+ * The TAP-GW uses `ausdigital-dcl` to identify which DCP to post the change to.
+ * the JWT must come from an `ausdigital-idp` that the DCP is a client of, in
+   other words the DCP is the RP (not the TAP_GW)
+ * The JWT must contain a claim matching the URN
+
+
+Question: Do we (or the DCP) prevent  a business from associating the same
+endpoint with multiple businesses, multiple service groups, or multiple endpoint
+types?
+
+ * pro: forcing endpoint uniqueness (within a DCP) protects ledger customers
+   from lock-in.
+ * con: it's not our problem, but we wear the cost of the complexity.
+ * I propose we do force endpoint uniqueness, but we should discuss this a bit
+   more widely.
+
+
+When a valid `PUT /endpoints/{uuid}/business` is received by the TAP-GW, the
+TAP-GW will use the JWT to interact with the DCP and configure the endpoint
+appropriately (for that message type, in the specified service group, for the
+identified URN).
+
+That should problably be asynchronous, so PUTting should return a status URL, which can be used to check the status of the update (in progress, complete, failed).
 
 
 # Receive Messages
@@ -196,4 +242,3 @@ TODO:
  * A reference [TAP-GW service](http://testpoint.io/tap-gw) (for testing and development purposes).
  * Free, Open-Source Software [TAP-GW implementation](https://github.com/test-point/testpoint-tap-gw).
  * An automated [TAP-GW test suite](https://github.com/test-point/testpoint-tap-gw).
-
