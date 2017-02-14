@@ -172,10 +172,62 @@ endpoints are "anonymous" until they are mapped to the integration surface of an
 When endpoints are first created they are anonymous (there is not public
 information associated with them). Anonymous endpoints can receive messages, but
 they are a "dark channel" (not discoverable) until they have metadata published
-about them in an `ausdigital-dcp`.
+about them in a DCP (see `ausdigital-dcp`) and DCL (see `ausdigital-dcl`).
 
-The TAP-GW protocol provides a simplified interface for associating an endpoint
-with a business identity, service group and purpose.
+There are two ways to publish metadata about an endpoint in a DCP:
+
+ * Directly, via the DCP or DCL interface
+ * Indirectly, via TAP-GW convenience methods.
+
+## Directly updated DCP and DCL
+
+Publicly associating an endpoints with a service interface for a business
+identity, directly in the DCP requires an appropriate authorisation token from
+an IDP (see `ausdigital-idp` for details). Similarly, associating a DCP with a
+business identity requires an appropriate authorisation token from an IDP (see
+`ausdigital-dcl` for details).
+
+If the TAP-GW interface is used to create an endpoint, and the DCL and DCP are
+directly updated to reference this endpoint, no further action is required (the
+endpoint is published)
+
+## Updating DCP and DCL via TAP-GW
+
+In addition to directly updating the DCL and DCP, it is also possible to use the
+TAP-GW to update the DCL and DCP indirectly, via a convenience interface that
+abstracts `ausdigital-dcl` and `ausdigital-dcp` away from the integrated system.
+
+While the TAP-GW interface for updating DCL and DCP is simple, it still requires
+an appropriate authorisation token per `ausdigital-idp`. There is more than one
+way to accomplish this:
+
+ * The TAP-GW may be a client of an IDP, which is trusted to an appropriate
+   level of assurance by the resource (DCP or DCL). If the business identity
+   provides authorisation to the TAP-GW, the IDP will issue a token to the
+   TAP-GW authorising it to update that business metadata associated with that
+   business identity in the resource. This requires the business to authenticate themselves directly to the IDP, and then provide authorisation directly to
+   the IDP.
+ * The user of the TAP-GW may operate a private (or 3rd party IDP) which is
+   trusted by the resource (DCP or DCL) with an appropriate level of assurance,
+   including certification for known customer relationship authorisations. If
+   the TAP-GW is a Relying Party of this IDP, then the user may use the known
+   customer interface of the IDP to issue tokens to the TAP-GW, that the TAP-GW
+   can then use to update the resource.
+ * The TAP-GW may operate a private IDP on behalf of the user, which is trusted
+   by the resource (DCP or DCL) at an appropriate level of assurance. This would
+   require the TAP-GW to prove to the satisfaction of the resource that their
+   user has 'known customer relationship' with their clients (the TAP-GW's
+   customer's customer), and that the TAP-GW is authorised to operate the
+   private IDP on behalf of their client. In this situation, the TAP-GW could be
+   an OIDC relying party of the private, trusted IDP and use it to issue tokens
+   with business identity claims associated with the TAP-GW's customer's
+   customer, to the TAP-GW, on behalf of the TAP-GW's customer.
+
+
+Assuming the TAP-GW has access to appropriate authorisation tokens, the simplest
+way to publish metadata about the endpoint in the DCP (or DCL) is to use the
+convenience methods in the TAP-GW. This provides a simplified interface for
+associating an endpoint with a business identity, service group and purpose.IDP.
 
 TODO: document `PUT /endpoints/{uuid}/business`.
 Schema:
@@ -197,7 +249,7 @@ Notes/Rules:
 
 Question: Do we (or the DCP) prevent  a business from associating the same
 endpoint with multiple businesses, multiple service groups, or multiple endpoint
-types?
+types? - that's a question for the DCP spec.
 
  * pro: forcing endpoint uniqueness (within a DCP) protects ledger customers
    from lock-in.
