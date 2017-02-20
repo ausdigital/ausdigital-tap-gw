@@ -42,7 +42,7 @@ audit the reliability of any TAP Gateway that it uses.
 
 
 This specification aims to support the Australian Digital Business Council
-[eInvoicing initiative](https://ausdigital.org), as an extension of the
+[eInvoicing initiative](http://ausdigital.org), as an extension of the
 [https://github.com/ausdigital/ausdigital-tap](https://github.com/ausdigital/ausdigital-tap).
 It is under active development at
 [https://github.com/ausdigital/ausdigital-tap-gw](https://github.com/ausdigital/ausdigital-tap-gw).
