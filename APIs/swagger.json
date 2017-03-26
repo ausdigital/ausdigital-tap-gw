@@ -1,9 +1,0 @@
-{
-  "swagger" : "2.0",
-  "info" : {
-    "version" : "1.0",
-    "title" : "The TAP Gateway specification",
-    "description" : "The Transaction Access Point Gateway (TAP-GW) is an optional, standardised interface for integrating ledger systems with a TAP service layer. This is an optional extension to the TAP protocol that separation ledger systems from the TAP service layer.\nPlease check out https://tap-gw.testpoint.io/api/docs/"
-  },
-  "paths" : { }
-}
