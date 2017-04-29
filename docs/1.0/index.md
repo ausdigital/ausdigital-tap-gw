@@ -274,7 +274,7 @@ failed).
 This is done on a per-endpoint basis.
 
  * get list of new messages with `GET /endpoints/{uuid}/{filter}`. This returns
-   a simple collection of identificators, datetime received, size in bytes and any other data.
+   a simple collection of identifiers, datetime received, size in bytes and any other data.
  * get individual message content with `GET /messages/{uuid}`
  * view message status (new/read/..) with `GET /messages/{uuid}/metadata`
  * mark message as read with `PATCH {'status':'read'} /messages/{uuid}/metadata`
