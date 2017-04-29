@@ -89,7 +89,7 @@ ausdigital-idp/1 | Version 1 of the [AusDigtial](http://ausdigital.org) [IDP](ht
 
 ## Licence
 
-Copyright (c) 2017 the Editor and Contributors. All rights reserved.
+Copyright (c) 2016-2017 the Editor and Contributors. All rights reserved.
 
 This Specification is free software; you can redistribute it and/or modify it
 under the terms of the GNU General Public License as published by the Free
@@ -130,13 +130,13 @@ DNS domain followed by an RFC 4122 Universally Unique Identifier (UUID).
 
 For example:
 * `https://tap.testpoint.io/886313e1-3b8a-5372-9b90-0c9aee199e5d/`, or
-* `https://my-invoice-provider.com/api/tap/Z2o6mR51EME/`, or any other URL
+* `https://my-access-point.com/api/tap/Z2o6mR51EME/`, or any other URL
 
 This endpoint does not directly reveal any information about the message
 receiving party, however the `ausdigital-dcp` reference to the endpoint will (if
 metadata about the endpoint has been published).
 
-Endpoint metadata - arbitrary key/values associated with the endpoints by endpoint owner for his internal needs.
+Endpoint metadata - arbitrary key/values associated with the endpoints by endpoint owner for their internal needs.
 
 As a TAP-GW user party can:
 
@@ -144,7 +144,7 @@ As a TAP-GW user party can:
    * optionally filtered by metadata `GET /endpoints/?{filter}`
  * GET endpoint details `GET /endpoints/{uuid}`
  * PUT new endpoint details `PUT {details} /endpoints/{uuid}`
- * (optional) PATCH endpoint details `PATCH {details} /endpoints/{uuid}`  
+ * (optional) PATCH endpoint details `PATCH {details} /endpoints/{uuid}`
  * create endpoint `POST {details} /endpoints/`
    * returns endpoint details (id)
 
@@ -167,7 +167,7 @@ Note:
  * TAP-GW MAY support any other user auth method
 
 TAP-GW customers can create an arbitrary number of endpoints, however these
-endpoints are "anonymous" until they are mapped to the integration surface of an identified business (via endpoint publishing mechanism). Endpoints may be created on behalf of customer, for example by customer's invoicing software
+endpoints are "anonymous" until they are mapped to the integration surface of an identified business (via endpoint publishing mechanism). Endpoints may be created on behalf of customer, for example by customer's ledger software
 
 
 # Endpoint Publishing
